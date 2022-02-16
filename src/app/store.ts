@@ -1,10 +1,12 @@
-import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit'
-
-import counterReducer from '../features/counter/counterSlice'
+import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit'
+import stockReducer from '../features/stock/stockSlice'
 
 export function makeStore() {
   return configureStore({
-    reducer: { counter: counterReducer },
+    reducer: { stock: stockReducer },
+    middleware: getDefaultMiddleware => getDefaultMiddleware({
+      serializableCheck: false
+    })
   })
 }
 
@@ -20,5 +22,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >
+
 
 export default store
