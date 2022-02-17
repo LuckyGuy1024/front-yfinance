@@ -1485,18 +1485,17 @@ var data = [
 
 export async function fetchStockHistory(
     params: StockHistoryQuery
-  ): Promise<any> {
-  // ): Promise<{ data: StockHistoryItem[] }> {
-  // let url = 'localhost:5000/api'
-  // let query = new URLSearchParams({...params}).toString();
+  // ): Promise<any> {
+  ): Promise<{ data: StockHistoryItem[] }> {
+  let url = 'http://localhost:5000/api'
+  let query = new URLSearchParams({...params}).toString();
 
-  // const response = await fetch(`${url}?${query}`, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   }
-  // })
-  // const result = await response.json()
-  // return result
-  return {data};
+  const response = await fetch(`${url}?${query}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+  const result = await response.json()
+  return result
 }

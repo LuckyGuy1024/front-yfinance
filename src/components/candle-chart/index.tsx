@@ -16,7 +16,7 @@ import {
 import { StockHistoryItem } from "../../features/stock/stockSlice";
 import { useEffect, useRef } from "react";
 
-export const OHLC = ({data}: {data: StockHistoryItem[]}) => {
+export const OHLC = ({data, symbol}: {data: StockHistoryItem[], symbol: string}) => {
   const chartInstance: any = useRef(null);
   useEffect(() => {
     if (chartInstance.current)
@@ -25,12 +25,13 @@ export const OHLC = ({data}: {data: StockHistoryItem[]}) => {
   let legendSettings = { visible: false };
  
   let tooltipRender = (args: ITooltipRenderEventArgs) => {
-    args.text = ` <b>${args.point.x.toLocaleDateString()}</b><br/>
-                  <b>high:${args.point.high}</b><br/>
-                  <b>low:${args.point.low}</b><br/>
-                  <b>open:${args.point.open}</b><br/>
-                  <b>close:${args.point.close}</b>`;
+    args.text = ` <b>${args.point['x'].toLocaleString()}</b><br/>
+                  <b>high:${args.point['high']}</b><br/>
+                  <b>low:${args.point['low']}</b><br/>
+                  <b>open:${args.point['open']}</b><br/>
+                  <b>close:${args.point['close']}</b>`;
   };
+  let title = symbol + " History"
   return (
     <ChartComponent
       ref={chartInstance}
@@ -48,7 +49,6 @@ export const OHLC = ({data}: {data: StockHistoryItem[]}) => {
         majorTickLines: { width: 0 },
       }}
       legendSettings={legendSettings}
-      title='Shirpur Gold Refinery Share Price'
       tooltipRender={tooltipRender}
       tooltip={{ enable: true }}
       crosshair={{ enable: true }}
