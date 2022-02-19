@@ -23,21 +23,21 @@ const IndexPage: NextPage<PageProps> = ({stock}) => {
 
   const [range, setRange] = useState<DateRange<Date>>([null, null]);
   const [symbol, setSymbol] = useState("")
-  const [interval, setInterval] = useState<'1d' | '1w' | '1m'>('1m')
+  const [interval, setInterval] = useState<'1d'|'1wk'|'1mo'>('1mo')
   
   useEffect( () => {
     if(range[0] && range[1] && interval)
-      dispatch(getStockHistoryAsync({ ticker_symbol: symbol, start: range[0].toLocaleDateString(), end: range[1].toLocaleDateString(), interval: interval }))
+      dispatch(getStockHistoryAsync({ ticker_symbol: symbol, start: range[0].toISOString().slice(0, 10), end: range[1].toISOString().slice(0, 10), interval: interval }))
   }, [range, interval])
   const intervals = [
     {
       value: '1d',
       label: "Day"
     }, {
-      value: '1w',
+      value: '1wk',
       label: "Week"
     }, {
-      value: '1m',
+      value: '1mo',
       label: "Month"
     }
   ]

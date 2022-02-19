@@ -1,23 +1,31 @@
-# Redux Toolkit TypeScript Example
+Front End for [Reboot Investing](https://rebootinvesting.com/)
+===========
 
-This example shows how to integrate Next.js with [Redux Toolkit](https://redux-toolkit.js.org).
+This project is intended to display stock history data using backend.
 
-The **Redux Toolkit** is a standardized way to write Redux logic (create actions and reducers, setup the store with some default middlewares like redux devtools extension). This example demonstrates each of these features with Next.js
 
-## Deploy your own
+Installation
+------------
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+First of all, make sure you have [node](https://nodejs.org/en/download/) installed on your computer.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-redux&project-name=with-redux&repository-name=with-redux)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-redux with-redux-app
-# or
-yarn create next-app --example with-redux with-redux-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+1. Use npm to run the project.
+    ```sh
+    npm run dev
+    ```
+    If you want to deploy it, use the following.
+    ```sh
+    npm run build
+    npm run start
+    ```
+    
+2.    You can use the following one if you have installed [python](https://www.python.org/downloads/) and [Typer](https://typer.tiangolo.com/#fastapi-of-clis) for starting backend.
+    Go to the parent folder until you find docker-compose.yml and main.py file and run the following command.
+        ```sh
+        python main.py start-front dev
+        ```
+        Or
+        ```sh
+        python main.py start-front build
+        python main.py start-front start
+        ```

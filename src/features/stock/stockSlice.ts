@@ -22,7 +22,7 @@ export interface StockHistoryQuery {
   ticker_symbol: string,
   start: string,
   end: string,
-  interval: "1d" | "1w" | "1m"
+  interval: "1d" | "1wk" | "1mo"
 }
 //-----------------------------------End of Interface---------------------------------
 
